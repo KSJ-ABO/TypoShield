@@ -28,12 +28,22 @@ else
     echo "해당 패키지에 대한 오타 스쿼팅 여부를 판단합니다."
 fi
 
-RESULT=$(python3 ./test.py "$INPUT") #머신러닝에 입력 값 삽입
-RESULT_ARRAY=($RESULT) # 결과 순서가 (test, 유사도, 1)인 경우로 가정
-
-ACCURACY=${RESULT_ARRAY[0]}
-NAME=${RESULT_ARRAY[1]}
-STATE=${RESULT_ARRAY[2]}
+CHECK=$(python3 cache.py "$INPUT")
+if [ $CHECK -eq 0 ]; then
+    RESULT=$(python3 ./test.py "$INPUT") #머신러닝에 입력 값 삽입
+    RESULT_ARRAY=($RESULT) # 결과 순서가 (test, 유사도, 1)인 경우로 가정
+    
+    ACCURACY=${RESULT_ARRAY[0]}
+    NAME=${RESULT_ARRAY[1]}
+    STATE=${RESULT_ARRAY[2]}
+    python3 cache.py "$INPUT", "$ACCURACY", "$NAME"
+    
+else
+    DATA=$(python3 cache.py "$INPUT")
+    ACCURACY=${DATA[0]}
+    NAME=${DATA[1]}
+    STATE=${DATA[2]}
+    
 
 if [ "$STATE" -eq 0 ]; then
    echo "$INPUT 에서 오타스쿼팅 확률이 발견되지않았습니다. 패키지를 다운 받습니다."

@@ -53,9 +53,12 @@ def jaro_winkler(str1: str, str2: str) -> float:
 def compare_jaro_winkler(similarities_list: list, input_word: str):
     similarities = []
     
-    for name, _ in similarities_list:  # similarities_list에서 name과 유사도 점수 추출
-        similarity = jaro_winkler(name, input_word)  # name과 input_word 비교
-        similarities.append((name, similarity))
+    # similarities_list에서 name과 유사도 점수 추출
+    for name, _ in similarities_list: 
+        # name과 input_word 비교
+        similarity = jaro_winkler(name, input_word)  
+        # 소수점 2자리까지만 출력함 
+        similarities.append((name, round(similarity, 2)))
 
     # 유사도 기준 필터링 및 정렬
     second_round_similarities = []
@@ -101,8 +104,20 @@ def select_by_first_word(name: str) -> list:
         
         # 조회한 모든 결과 results에 저장함
         results = cur.fetchall()
-        return [result[0] for result in results]
         
+        #각각 따로 호출할 땐 아래 주석 삭제
+        #return [result[0] for result in results]
+        
+        # 함께 호출 시 추가함
+        name_list = [result[0] for result in results]
+        
+        # find_similar_names 호출
+        similarities_list = find_similar_names(name, name_list)
+        #compare_jaro_winkler 호출
+        second_round_similarities = compare_jaro_winkler(similarities_list, name)
+        
+        return second_round_similarities
+    
     except pymysql.MySQLError as e:
         print(f"select error: {e}")        
         # 결과 없으면 빈 리스트 반환 
@@ -110,9 +125,14 @@ def select_by_first_word(name: str) -> list:
         return print("빈 리스트임")
 
 input_word = "perl" #나중에 입력 받는 단어로 변경하면 됨 
-name_list = select_by_first_word(input_word)
-similarities_list = find_similar_names(input_word, name_list)
-second_round_similarities = compare_jaro_winkler(similarities_list, input_word)
+
+# 따로 호출 시 호출 변수 name_list로 변경
+second_round_similarities = select_by_first_word(input_word)
+
+print(second_round_similarities)
+# 따로 호출 시 주석 해제
+#similarities_list = find_similar_names(input_word, name_list)
+#second_round_similarities = compare_jaro_winkler(similarities_list, input_word)
 
 # 최종 결과 출력 및 순위 매기기
 #for rank, (name, similarity) in enumerate(second_round_similarities, start=1):

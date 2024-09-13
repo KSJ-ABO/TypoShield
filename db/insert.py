@@ -4,7 +4,7 @@ import pymysql
 import pandas as pd
 
 conn = pymysql.connect(
-    host='localhost',
+    host='211.188.53.248',
     user='ABO',
     password='!@ABOkSj0812@!',
     database='ABO',

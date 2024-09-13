@@ -29,14 +29,15 @@ else
 fi
 
 CHECK=$(python3 cache.py "$INPUT")
+
 if [ $CHECK -eq 0 ]; then
-    RESULT=$(python3 ./test.py "$INPUT") #머신러닝에 입력 값 삽입
+    RESULT=$(python3 ./func/test.py "$INPUT") # 머신러닝에 입력 값 삽입
     RESULT_ARRAY=($RESULT) # 결과 순서가 (test, 유사도, 1)인 경우로 가정
     
     ACCURACY=${RESULT_ARRAY[0]}
     NAME=${RESULT_ARRAY[1]}
     STATE=${RESULT_ARRAY[2]}
-    python3 cache.py "$INPUT", "$ACCURACY", "$NAME"
+    python3 insert_cache.py "$INPUT", "$ACCURACY", "$NAME"
     
 else
     DATA=$(python3 cache.py "$INPUT")

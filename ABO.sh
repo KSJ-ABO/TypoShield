@@ -95,7 +95,9 @@ if $option_p; then
        echo "This package is $ACCURACY similarity to $NAME."
        echo "There's a possibility that it's typosquoting"
        echo "Please check the package you entered again ($INPUT)"
-       echo "---------------------------
+       echo "-------------------------------------------"
+       echo "PackgeName: Similarity"
+       ehco "-------------------------------------------"
        echo "1. $NAME: $ACCURACY"
        echo "2. ${RESULT_ARRAY[4]}: ${RESULT_ARRAY[3]}"
        echo "3. ${RESULT_ARRAY[6]}: ${RESULT_ARRAY[5]}"

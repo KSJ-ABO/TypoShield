@@ -6,6 +6,10 @@ from tkinter import Tk
 from tkinter.filedialog import askopenfilename
 
 def get_imported_packages(file_path):
+    if not os.path.isfile(file_path):
+        print(f"오류: '{file_path}' 파일이 존재하지 않습니다.")
+        return []
+
     with open(file_path, 'r') as file:
         tree = ast.parse(file.read(), filename=file_path)
     
@@ -20,8 +24,6 @@ def get_imported_packages(file_path):
     return list(packages)
 
 def main(file_path):
-    # Tkinter 루트를 숨깁니다
-    
     if not file_path:
         print("파일이 선택되지 않았습니다.")
         return

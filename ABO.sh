@@ -94,6 +94,9 @@ if $option_p; then
        echo "This package is $ACCURACY similarity to $NAME."
        echo "There's a possibility that it's typosquoting"
        echo "Please check the package you entered again ($INPUT)"
+       echo "1. $NAME: $ACCURACY"
+       echo "2. $RESULT_ARRAY[3]: $RESULT_ARRAY[4]"
+       echo "3. $RESULT_ARRAY[5]: $RESULT_ARRAY[6]"
        echo "Do you want to install this package? (Y/N)"
        read -p "Y/N: " OKAY
        OKAY=$(echo "$OKAY" | tr '[:lower:]' '[:upper:]')

@@ -86,7 +86,7 @@ if $option_p; then
     if [ "$STATE" -eq 0 ]; then
        echo "No typosquotting probabilities found in $INPUT package."
        echo "Download the package..."
-       ehco ""
+       echo ""
        sudo apt-get install -y "$INPUT"
        echo ""
        if [$? -eq 0]; then
@@ -100,7 +100,7 @@ if $option_p; then
        echo "Please check the package you entered again ($INPUT)"
        echo "-------------------------------------------"
        echo "PackgeName: Similarity"
-       ehco "-------------------------------------------"
+       echo "-------------------------------------------"
        echo "1. $NAME: $ACCURACY"
        echo "2. ${RESULT_ARRAY[4]}: ${RESULT_ARRAY[3]}"
        echo "3. ${RESULT_ARRAY[6]}: ${RESULT_ARRAY[5]}"
@@ -122,7 +122,7 @@ if $option_p; then
        echo "$INPUT 패키지는 오타스쿼팅 패키지일 확률이 낮지만, 유사한 이름의 패키지가 존재합니다. 원하는 패키지가 '$INPUT'이 맞습니까?"
        echo "-------------------------------------------"
        echo "PackgeName: Similarity"
-       ehco "-------------------------------------------"
+       echo "-------------------------------------------"
        echo "1. $NAME: $ACCURACY"
        echo "2. ${RESULT_ARRAY[4]}: ${RESULT_ARRAY[3]}"
        echo "3. ${RESULT_ARRAY[6]}: ${RESULT_ARRAY[5]}"

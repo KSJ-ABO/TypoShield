@@ -34,7 +34,6 @@ while getopts "pc" opt; do
 done
 
 INPUT=$2
-echo "$INPUT"
 
 if $option_p; then
     EXIST=$(apt-cache search "$INPUT" | grep -w "$INPUT")
@@ -124,6 +123,6 @@ if $option_p; then
 fi
 
 if $option_c; then
-    LIST=$(python3 ./func/code_check.py "/test.py")
+    LIST=$(python3 ./func/code_check.py "$INPUT")
     echo "$LIST"
 fi

@@ -1,7 +1,7 @@
 import ast
 import sys
 import os
-import algo
+import algo2
     
 def get_imported_packages(file_path):
     if not os.path.isfile(file_path):

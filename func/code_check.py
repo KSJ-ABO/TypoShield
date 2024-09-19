@@ -21,16 +21,15 @@ def get_imported_packages(file_path):
     
     return list(packages)
 
+def main(file_path):
+    packages = get_imported_packages(file_path)
+    list=algo2.main(packages)
+    print(list)
 file_path = sys.argv[1]
 if not file_path:
         print("파일이 선택되지 않았습니다.")
-        return
+
+else:
+    main(file_path)
     
-    
-    # 패키지 이름 추출
-packages = get_imported_packages(file_path)
-    
-    # algorithm.py 실행
-list=algo2.main(packages)
-print(list)
 

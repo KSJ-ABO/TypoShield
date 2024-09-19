@@ -37,21 +37,22 @@ INPUT=$2
 
 if $option_p; then
     EXIST=$(apt-cache search "$INPUT" | grep -w "$INPUT")
-    
+    echo "<typo Squatting Detection System for Packages>"
+    echo ""
     if [ -z "$EXIST" ]; then
-       echo "해당 패키지는 존재하지 않습니다."
-       echo "존재하는 패키지가 맞습니까?"
-    
+       echo "No such packages were found."
+       echo "Is this the package that exists?"
        read -p "Y/N: " OKAY
+       ehco ""
        OKAY=$(echo "$OKAY" | tr '[:lower:]' '[:upper:]')
        if [ "$OKAY" = "Y" ]; then
-          echo "해당 패키지를 대상으로 지정합니다"
+          echo "Target Package: $INPUT"
        else
-          echo "종료합니다."
+          echo "Exit."
           exit 1
        fi
     else
-        echo "해당 패키지에 대한 오타 스쿼팅 여부를 판단합니다."
+        echo "Target Package: $INPUT"
     fi
     
     #CHECK=$(python3 cache.py "$INPUT")
@@ -71,7 +72,7 @@ if $option_p; then
     #    NAME=${DATA[1]}
     #    STATE=${DATA[2]}
         
-    RESULT=$(python3 ./func/test.py "$INPUT") # 머신러닝에 입력 값 삽입
+    RESULT=$(python3 ./func/test.py "$INPUT")
     RESULT_ARRAY=($RESULT) # 결과 순서가 (test, 유사도, 1)인 경우로 가정
        
     ACCURACY=${RESULT_ARRAY[0]}
@@ -79,24 +80,29 @@ if $option_p; then
     STATE=${RESULT_ARRAY[2]}
     
     if [ "$STATE" -eq 0 ]; then
-       echo "$INPUT 에서 오타스쿼팅 확률이 발견되지않았습니다. 패키지를 다운 받습니다."
+       echo "No typosquotting probabilities found in $INPUT package.."
+       echo "Download the package..."
        sudo apt-get install -y "$INPUT"
+       echo ""
        if [$? -eq 0]; then
-          echo "$INPUT 패키지 설치 완료."
+          echo "$INPUT Package Installation Completed"
        else
-          echo "$INPUT 패키지 설치 실패"
+          echo "$INPUT Package Installation Failed"
        fi
     elif [ "$STATE" -eq 1 ]; then
-       echo "해당 패키지는 $NAME 과 $ACCURACY의 유사도가 판별되었습니다. 오타스쿼팅일 가능성이 존재합니다. $INPUT을 다시 한번 확인해보시길 바랍니다"
-       echo "의도한 패키지가 맞다면 설치를 계속하시겠습니까? (Y/N)"
+       echo "This package is $ACCURACY similarity to $NAME."
+       echo "There's a possibility that it's typosquoting"
+       echo "Please check the package you entered again ($INPUT)"
+       echo "Do you want to install this package? (Y/N)"
        read -p "Y/N: " OKAY
        OKAY=$(echo "$OKAY" | tr '[:lower:]' '[:upper:]')
        if [ "$OKAY" = "Y" ]; then
           sudo apt-get install -y "$INPUT"
+          echo ""
           if [ $? -eq 0 ]; then
-             echo "$INPUT 패키지 설치 완료."
+             echo "$INPUT Package Installation Completed"
           else
-             echo "$INPUT 패키지 설치 실패"
+             echo "$INPUT Package Installation Failed"
           fi
        else   
           exit 1
@@ -109,9 +115,9 @@ if $option_p; then
        if [ "$OKAY" = "Y" ]; then
            sudo apt-get install -y "$INPUT"
           if [ $? -eq 0 ]; then
-              echo "$INPUT 패키지 설치 완료."
+              echo "$INPUT Package Installation Completed"
           else
-             echo "$INPUT 패키지 설치 실패"
+             echo "$INPUT Package Installation Failed"
           fi
        else
           echo "종료합니다."

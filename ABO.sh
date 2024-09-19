@@ -12,10 +12,6 @@ if [ -z "$1" ]; then
 fi
 
 
-if [ "$1" -ne 0 ]; then
-    echo "잘못된 입력 (사용법 $0 [패키지명])"
-    exit 1
-fi
 
 INPUT=$1
 

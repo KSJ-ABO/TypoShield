@@ -120,7 +120,13 @@ if $option_p; then
        fi
     elif [ "$STATE" -eq 2 ]; then
        echo "$INPUT 패키지는 오타스쿼팅 패키지일 확률이 낮지만, 유사한 이름의 패키지가 존재합니다. 원하는 패키지가 '$INPUT'이 맞습니까?"
-       echo "의도한 패키지가 맞다면 설치를 계속하시겠습니까? (Y/N)"
+       echo "-------------------------------------------"
+       echo "PackgeName: Similarity"
+       ehco "-------------------------------------------"
+       echo "1. $NAME: $ACCURACY"
+       echo "2. ${RESULT_ARRAY[4]}: ${RESULT_ARRAY[3]}"
+       echo "3. ${RESULT_ARRAY[6]}: ${RESULT_ARRAY[5]}"
+       echo "Do you want to install this package? (Y/N)"
        read -p "Y/N: " OKAY
        OKAY=$(echo "$OKAY" | tr '[:lower:]' '[:upper:]')
        if [ "$OKAY" = "Y" ]; then

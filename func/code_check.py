@@ -2,8 +2,7 @@ import ast
 import sys
 import os
 import algo
-
-
+    
 def get_imported_packages(file_path):
     if not os.path.isfile(file_path):
         print(f"오류: '{file_path}' 파일이 존재하지 않습니다.")
@@ -22,16 +21,16 @@ def get_imported_packages(file_path):
     
     return list(packages)
 
-def main(file_path):
-    if not file_path:
+file_path = sys.argv[1]
+if not file_path:
         print("파일이 선택되지 않았습니다.")
         return
     
+    
     # 패키지 이름 추출
-    packages = get_imported_packages(file_path)
+packages = get_imported_packages(file_path)
     
     # algorithm.py 실행
-    list=algo2.main(packages)
-
-    print(list)
+list=algo2.main(packages)
+print(list)
 

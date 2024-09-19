@@ -119,7 +119,8 @@ if $option_p; then
           exit 1
        fi
     elif [ "$STATE" -eq 2 ]; then
-       echo "$INPUT 패키지는 오타스쿼팅 패키지일 확률이 낮지만, 유사한 이름의 패키지가 존재합니다. 원하는 패키지가 '$INPUT'이 맞습니까?"
+       echo "$INPUT This package is less likely to be a typosquotting package.
+       echo "It could be a user package.."
        echo "-------------------------------------------"
        echo "PackgeName: Similarity"
        echo "-------------------------------------------"

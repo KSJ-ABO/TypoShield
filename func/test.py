@@ -22,4 +22,4 @@ if accuracy == 1:
 elif accuracy > 0.9 :
     print("%2lf %s %d %2lf %s %2lf %s" % (accuracy, name, 1, accuracy2, name2, accuracy3, name3))
 else:
-    print("%2lf %s %d" % (accuracy, name, 2, accuracy2, name2, accuracy3, name3))
+    print(""%2lf %s %d %2lf %s %2lf %s" % (accuracy, name, 2, accuracy2, name2, accuracy3, name3))

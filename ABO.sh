@@ -86,7 +86,7 @@ if $option_p; then
     if [ "$STATE" -eq 0 ]; then
        echo "No typosquotting probabilities found in $INPUT package."
        echo "Download the package..."
-       echo ""
+       ehco ""
        sudo apt-get install -y "$INPUT"
        echo ""
        if [$? -eq 0]; then

@@ -90,18 +90,35 @@ def select_by_first_word(name: str, name_list: list) -> list:
 # CSV 파일 경로 (이 부분은 실제 파일 경로로 수정)
 #경로 수정 필요!!
 
-# 유사도 측정
-results = []
-for input_word in input_words:
-    second_round_similarities = select_by_first_word(input_word, name_list)
-    results.append((input_word, second_round_similarities))
+def load_package_names(db_file: str) -> list:
+    conn = sqlite3.connect(db_file)
+    cursor = conn.cursor()
+    
+    cursor.execute("SELECT name FROM packages")
+    rows = cursor.fetchall()
+    
+    conn.close()
+    
+    return [row[0] for row in rows]
 
-# 최종 결과 출력
-for input_word, similarities in results:
-    print(f"패키지: {input_word}")
-    if similarities:
-        for name, similarity in similarities:
-            print(f"유사한 패키지: {name}, 유사도: {similarity}")
+def main():
+    # 데이터베이스 파일 경로 (이 부분은 실제 파일 경로로 수정)
+    db_file_path = 'path/to/your/database.db'  # 실제 경로로 변경 필요
+    
+    # 데이터베이스에서 패키지명 로드
+    name_list = load_package_names(db_file_path)
+    
+    # 입력받은 패키지명 가져오기
+    if len(sys.argv) > 1:
+        input_words = sys.argv[1].split(',')
     else:
-        print("유사한 패키지가 없습니다.")
-    print("------------------------")
+        input_words = []  # 기본값을 빈 리스트로 설정
+    
+    # 유사도 측정
+    results = []
+    for input_word in input_words:
+        second_round_similarities = select_by_first_word(input_word, name_list)
+        results.append((input_word, second_round_similarities))
+
+
+

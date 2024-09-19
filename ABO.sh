@@ -141,6 +141,9 @@ fi
 
 if $option_c; then
     LIST=$(python3 ./func/code_check.py "$INPUT")
-    python3 ./func/get_len.py "$LIST"
-   
+    if [ $? -eq 0 ]; then
+        python3 ./func/get_len.py "$LIST"
+    else
+        echo "System Error"
+   fi
 fi

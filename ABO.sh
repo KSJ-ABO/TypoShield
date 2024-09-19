@@ -37,6 +37,7 @@ INPUT=$2
 
 if $option_p; then
     EXIST=$(apt-cache search "$INPUT" | grep -w "$INPUT")
+    echo ""
     echo "<typo Squatting Detection System for Packages>"
     echo ""
     if [ -z "$EXIST" ]; then

@@ -90,29 +90,25 @@ def select_by_first_word(name: str, name_list: list) -> list:
 # CSV 파일 경로 (이 부분은 실제 파일 경로로 수정)
 #경로 수정 필요!!
 
-def load_package_names(db_file: str) -> list:
-    conn = sqlite3.connect(db_file)
+def load_package_names() -> list:
+    conn = pymysql.connect(
+    host='localhost',
+    user='ABO',
+    password='!@ABOkSj0812@!',
+    database='ABO',
+    charset='utf8'
+    )
     cursor = conn.cursor()
     
     cursor.execute("SELECT name FROM packages")
     rows = cursor.fetchall()
     
     conn.close()
-    
     return [row[0] for row in rows]
 
-def main():
-    # 데이터베이스 파일 경로 (이 부분은 실제 파일 경로로 수정)
-    db_file_path = 'path/to/your/database.db'  # 실제 경로로 변경 필요
-    
+def main(input_words):
     # 데이터베이스에서 패키지명 로드
-    name_list = load_package_names(db_file_path)
-    
-    # 입력받은 패키지명 가져오기
-    if len(sys.argv) > 1:
-        input_words = sys.argv[1].split(',')
-    else:
-        input_words = []  # 기본값을 빈 리스트로 설정
+    name_list = load_package_names()
     
     # 유사도 측정
     results = []

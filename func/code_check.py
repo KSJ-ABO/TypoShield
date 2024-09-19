@@ -1,6 +1,7 @@
 import ast
 import sys
 import subprocess
+import algo
 from tkinter import Tk
 from tkinter.filedialog import askopenfilename
 
@@ -18,12 +19,9 @@ def get_imported_packages(file_path):
     
     return list(packages)
 
-def main():
+def main(file_path):
     # Tkinter 루트를 숨깁니다
     Tk().withdraw()
-    
-    # 사용자로부터 코드 파일 선택
-    file_path = askopenfilename(title="코드 파일 선택", filetypes=[("Python files", "*.py")])
     
     if not file_path:
         print("파일이 선택되지 않았습니다.")
@@ -36,5 +34,3 @@ def main():
     packages_str = ','.join(packages)
     subprocess.run([sys.executable, 'algorithm.py', packages_str])
 
-if __name__ == "__main__":
-    main()

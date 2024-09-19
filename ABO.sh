@@ -124,5 +124,6 @@ fi
 
 if $option_c; then
     LIST=$(python3 ./func/code_check.py "$INPUT")
-    echo "$LIST"
+    LEN_ARRAY=$(python3 ./func/get_len.py "$LIST")
+    echo "$LEN_ARRAY"
 fi

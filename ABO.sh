@@ -124,13 +124,6 @@ fi
 
 if $option_c; then
     LIST=$(python3 ./func/code_check.py "$INPUT")
-    LEN_ROWS=$(python3 ./func/get_len.py "$LIST")
-    LEN_COLUMNS=3
-    for ((i = 0; i < LEN_ROWS; i++)); do
-        echo "$LIST" | jq -r ".[$i][0]"      
-        for ((j = 1; j < LEN_COLUMNS; j++)); do
-            echo "$LIST" | jq -r ".[$i][$j]"
-        done
-        echo("---")
-    done
+    python3 ./func/get_len.py "$LIST"
+   
 fi

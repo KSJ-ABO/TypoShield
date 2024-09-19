@@ -1,9 +1,8 @@
 import ast
 import sys
-import subprocess
+import os
 import algo
-from tkinter import Tk
-from tkinter.filedialog import askopenfilename
+
 
 def get_imported_packages(file_path):
     if not os.path.isfile(file_path):
@@ -32,7 +31,7 @@ def main(file_path):
     packages = get_imported_packages(file_path)
     
     # algorithm.py 실행
-    list=algo.main2(packages)
+    list=algo2.main(packages)
 
     print(list)
 

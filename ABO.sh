@@ -104,6 +104,7 @@ if $option_p; then
        echo "1. $NAME: $ACCURACY"
        echo "2. ${RESULT_ARRAY[4]}: ${RESULT_ARRAY[3]}"
        echo "3. ${RESULT_ARRAY[6]}: ${RESULT_ARRAY[5]}"
+       echo "-------------------------------------------"
        echo "Do you want to install this package? (Y/N)"
        read -p "Y/N: " OKAY
        OKAY=$(echo "$OKAY" | tr '[:lower:]' '[:upper:]')
@@ -127,6 +128,7 @@ if $option_p; then
        echo "1. $NAME: $ACCURACY"
        echo "2. ${RESULT_ARRAY[4]}: ${RESULT_ARRAY[3]}"
        echo "3. ${RESULT_ARRAY[6]}: ${RESULT_ARRAY[5]}"
+       echo "-------------------------------------------"
        echo "Do you want to install this package? (Y/N)"
        read -p "Y/N: " OKAY
        OKAY=$(echo "$OKAY" | tr '[:lower:]' '[:upper:]')

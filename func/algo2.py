@@ -1,6 +1,7 @@
 import sys
 import pymysql
 
+
 # Jaro-Winkler 유사도 계산 함수
 def jaro_winkler(str1: str, str2: str) -> float:
     def get_matched_characters(_str1: str, _str2: str) -> str:
@@ -101,7 +102,7 @@ def load_package_names() -> list:
     )
     cursor = conn.cursor()
     
-    cursor.execute("SELECT name FROM packages")
+    cursor.execute("SELECT name FROM PackageName")
     rows = cursor.fetchall()
     
     conn.close()

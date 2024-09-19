@@ -9,7 +9,9 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 if [ -z "$1" ]; then
-    echo "잘못된 입력 (사용법: $0 [패키지명])"
+    echo "Usage: $0 [-p] [-c]"
+    echo "[-p] [package_name]: install package"
+    echo "[-c] [file_path]: check python code file pakage "
     exit 1
 fi
 

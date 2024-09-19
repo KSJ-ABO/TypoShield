@@ -33,7 +33,7 @@ while getopts "pc" opt; do
   esac
 done
 
-$INPUT=$2
+INPUT=$2
 echo "$INPUT"
 
 if $option_p; then

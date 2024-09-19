@@ -71,7 +71,8 @@ if $option_p; then
     #    ACCURACY=${DATA[0]}
     #    NAME=${DATA[1]}
     #    STATE=${DATA[2]}
-        
+
+    echo ""
     RESULT=$(python3 ./func/test.py "$INPUT")
     RESULT_ARRAY=($RESULT) # 결과 순서가 (test, 유사도, 1)인 경우로 가정
        
@@ -80,7 +81,7 @@ if $option_p; then
     STATE=${RESULT_ARRAY[2]}
     
     if [ "$STATE" -eq 0 ]; then
-       echo "No typosquotting probabilities found in $INPUT package.."
+       echo "No typosquotting probabilities found in $INPUT package."
        echo "Download the package..."
        sudo apt-get install -y "$INPUT"
        echo ""

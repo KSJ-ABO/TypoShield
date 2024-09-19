@@ -7,7 +7,7 @@ list=algo.main(package)
 
 
 cnt = len(list)
-array =list[1]
+array =list[0]
 name =array[0]
 accuracy=array[1]
 

@@ -5,6 +5,8 @@ data = sys.argv[1]
 data = ast.literal_eval(data)
 
 row_count = len(data)
-column_counts = [len(item[1]) for item in data]
+for package, packages in data:
+    print(f"package: {package}")
+    for item in packages:
+        print(f"  Name: {item[0]}, Similarity: {item[1]}")
 
-print(row_count)

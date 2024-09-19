@@ -145,10 +145,14 @@ def main(input_word: str):
 
     return second_round_similarities
 
-
+def main2(name_list):
 # 따로 호출 시 호출 변수 name_list로 변경
 
-
+    results = []
+    for input_word in input_words:
+        second_round_similarities = select_by_first_word(input_word, name_list)
+        results.append((input_word, second_round_similarities))
+    return result
 
 # 따로 호출 시 주석 해제
 #similarities_list = find_similar_names(input_word, name_list)

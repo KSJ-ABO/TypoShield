@@ -1,4 +1,5 @@
 import sys
+import pymysql
 
 # Jaro-Winkler 유사도 계산 함수
 def jaro_winkler(str1: str, str2: str) -> float:
@@ -115,6 +116,7 @@ def main(input_words):
     for input_word in input_words:
         second_round_similarities = select_by_first_word(input_word, name_list)
         results.append((input_word, second_round_similarities))
+    print(results)
 
 
 

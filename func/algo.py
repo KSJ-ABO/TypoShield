@@ -128,7 +128,7 @@ def select_by_first_word(name: str) -> list:
 
 
 
-def main():
+def main(input_word: str):
     conn = pymysql.connect(
     host='localhost',
     user='ABO',
@@ -138,7 +138,12 @@ def main():
     )
 
     cur = conn.cursor()
+    second_round_similarities = select_by_first_word(input_word)
 
+    cur.close()
+    conn.close()
+
+    return second_round_similarities
 
 
 # 따로 호출 시 호출 변수 name_list로 변경

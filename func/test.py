@@ -3,9 +3,8 @@ import algo
 
 package = sys.argv[1]
 
-list=algo.select_by_first_word(package)
+list=algo.main(package)
 
-#list = check.check(package)
 
 cnt = len(list)
 array =list[1]

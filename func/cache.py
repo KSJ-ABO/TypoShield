@@ -23,5 +23,14 @@ def insert_cache(typo_name, accuracy, name):
   name = sys.argv[3]
     
 
+
+
+  try:
+    cur.execute(“"INSERT INTO cache VALUES (typo_name, accuracy, name)")
+    conn.commit()
+  finally:
+    conn.close()
+    return 1;
+    
 check_cache(sys.argv[1])
 print(data)

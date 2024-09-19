@@ -44,7 +44,7 @@ if $option_p; then
        echo "No such packages were found."
        echo "Is this the package that exists?"
        read -p "Y/N: " OKAY
-       ehco ""
+       echo ""
        OKAY=$(echo "$OKAY" | tr '[:lower:]' '[:upper:]')
        if [ "$OKAY" = "Y" ]; then
           echo "Target Package: $INPUT"

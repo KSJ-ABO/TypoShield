@@ -128,6 +128,16 @@ def select_by_first_word(name: str) -> list:
 
 
 
+def main():
+    conn = pymysql.connect(
+    host='localhost',
+    user='ABO',
+    password='!@ABOkSj0812@!',
+    database='ABO',
+    charset='utf8'
+    )
+
+    cur = conn.cursor()
 
 
 

@@ -21,7 +21,6 @@ def get_imported_packages(file_path):
 
 def main(file_path):
     # Tkinter 루트를 숨깁니다
-    Tk().withdraw()
     
     if not file_path:
         print("파일이 선택되지 않았습니다.")
@@ -31,6 +30,7 @@ def main(file_path):
     packages = get_imported_packages(file_path)
     
     # algorithm.py 실행
-    packages_str = ','.join(packages)
-    subprocess.run([sys.executable, 'algorithm.py', packages_str])
+    list=algo.main2(packages)
+
+    print(list)
 

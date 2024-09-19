@@ -138,11 +138,11 @@ if $option_p; then
              echo "$INPUT Package Installation Failed"
           fi
        else
-          echo "종료합니다."
+          echo "DONE."
           exit 1
        fi
     else
-       echo "시스템 오류"
+       echo "System Error"
     fi
 fi
 

@@ -119,7 +119,7 @@ if $option_p; then
           exit 1
        fi
     elif [ "$STATE" -eq 2 ]; then
-       echo "$INPUT This package is less likely to be a typosquotting package.
+       echo "$INPUT This package is less likely to be a typosquotting package."
        echo "It could be a user package.."
        echo "-------------------------------------------"
        echo "PackgeName: Similarity"

@@ -34,7 +34,7 @@ done
 
 INPUT=$1
 
-if $option_p' then
+if $option_p; then
     EXIST=$(apt-cache search "$INPUT" | grep -w "$INPUT")
     
     if [ -z "$EXIST" ]; then

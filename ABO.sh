@@ -123,4 +123,5 @@ if $option_p; then
 fi
 
 if $option_c; then
-    
+    LIST=$(python3 code_check.py "/test.py")
+    echo "$LIST"

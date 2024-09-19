@@ -15,6 +15,12 @@ def check_cache(input):
     return 0;
   else:
     return data;
+
+def insert_cache(typo_name, accuracy, name):
+  conn = pymysql.connect(host = 'localhost', 'user=root', password = '', 'db = 'myhome', charset = 'utf8')
+  typo_name = sys.argv[1]
+  accuracy = float(sys.argv[2])
+  name = sys.argv[3]
     
 
 check_cache(sys.argv[1])

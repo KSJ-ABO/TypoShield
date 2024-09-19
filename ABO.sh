@@ -18,9 +18,11 @@ while getopts "pc" opt; do
   case $opt in
     p)
       option_p=true
+      INPUT="$OPTARG"
       ;;
     c)
       option_c=true
+      INPUT_file="$OPTARG"
       ;;
     *)
       echo "Usage: $0 [-p] [-c]"
@@ -30,9 +32,6 @@ while getopts "pc" opt; do
       ;;
   esac
 done
-
-
-INPUT=$1
 
 if $option_p; then
     EXIST=$(apt-cache search "$INPUT" | grep -w "$INPUT")

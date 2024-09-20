@@ -120,11 +120,11 @@ if $option_p; then
            echo "if you want to install package"
            read -p "Select Option: " CHOICE
            if [ "$CHOICE" -eq 1 ]; then
-               TARGET_PACKAGE = "$NAME"
+               TARGET_PACKAGE = $NAME
            elif [ "$CHOICE" -eq 2 ]; then
-               TARGET_PACKAGE = "${RESULT_ARRAY[4]}"
+               TARGET_PACKAGE = ${RESULT_ARRAY[4]}
            elif [ "$CHOICE" -eq 3 ]; then
-               TARGET_PACKAGE = "${RESULT_ARRAY[6]}"
+               TARGET_PACKAGE = ${RESULT_ARRAY[6]}
            else
                echo "System Finish"
                exit 1
@@ -164,11 +164,11 @@ if $option_p; then
            echo "if you want to install package"
            read -p "Select Option: " CHOICE
            if [ "$CHOICE" -eq 1 ]; then
-               TARGET_PACKAGE = "$NAME"
+               TARGET_PACKAGE = $NAME
            elif [ "$CHOICE" -eq 2 ]; then
-               TARGET_PACKAGE = "${RESULT_ARRAY[4]}"
+               TARGET_PACKAGE = ${RESULT_ARRAY[4]}
            elif [ "$CHOICE" -eq 3 ]; then
-               TARGET_PACKAGE = "${RESULT_ARRAY[6]}"
+               TARGET_PACKAGE = ${RESULT_ARRAY[6]}
            else
                echo "System finish"
                exit 1

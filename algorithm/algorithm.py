@@ -115,7 +115,7 @@ def select_by_first_word(name: str) -> list:
         similarities_list = find_similar_names(name, name_list)
         #compare_jaro_winkler 호출
         second_round_similarities = compare_jaro_winkler(similarities_list, name)
-        
+        second_round_similarities.sort(key=lambda x: x[1], reverse=True)
         return second_round_similarities
     
     except pymysql.MySQLError as e:

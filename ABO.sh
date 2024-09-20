@@ -126,7 +126,14 @@ if $option_p; then
            elif [ "$CHOICE" -eq 3 ]; then
                sudo apt-get install -y "${RESULT_ARRAY[6]}"
            else
-               echo "NO Number" 
+               echo "NO Number"
+           fi
+           echo ""
+           if [ $? -eq 0 ]; then
+              echo "$INPUT Package Installation Completed"
+          else
+             echo "$INPUT Package Installation Failed"
+          fi
        else   
           exit 1
        fi
@@ -153,14 +160,27 @@ if $option_p; then
        elif [ "$OKAY" = "N" ]; then
            echo "if you want to install package"
            read -p "Select Option: " CHOICE
-           if [ "$CHOICE" -eq 1 ]; then 
+           if [ "$CHOICE" -eq 1 ]; then
+               echo "Download $NAME"
+               echo ""
                sudo apt-get install -y "$NAME"
            elif [ "$CHOICE" -eq 2 ]; then
+               echo "Download ${RESULT_ARRAY[4]}"
+               echo ""
                sudo apt-get install -y "${RESULT_ARRAY[4]}"
            elif [ "$CHOICE" -eq 3 ]; then
+               echo "Download ${RESULT_ARRAY[6]}"
+               echo ""
                sudo apt-get install -y "${RESULT_ARRAY[6]}"
            else
                echo "NO Number"
+           fi
+           echo ""
+           if [ $? -eq 0 ]; then
+              echo "$INPUT Package Installation Completed"
+          else
+             echo "$INPUT Package Installation Failed"
+          fi 
        else
           echo "DONE."
           exit 1

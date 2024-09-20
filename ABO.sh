@@ -126,7 +126,8 @@ if $option_p; then
            elif [ "$CHOICE" -eq 3 ]; then
                TARGET_PACKAGE = "${RESULT_ARRAY[6]}"
            else
-               echo "NO Number"
+               echo "System Finish"
+               exit 1
            fi
            echo "Download Packge: $TARGET_PACKAGE"
            sudo apt-get install -y "$TARGET_PACKGE"
@@ -170,6 +171,7 @@ if $option_p; then
                TARGET_PACKAGE = "${RESULT_ARRAY[6]}"
            else
                echo "System finish"
+               exit 1
            fi
            echo "Download Packge: $TARGET_PACKAGE"
            sudo apt-get install -y "$TARGET_PACKGE"

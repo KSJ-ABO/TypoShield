@@ -108,8 +108,9 @@ if $option_p; then
            echo "3. ${RESULT_ARRAY[6]}: ${RESULT_ARRAY[5]}"
            echo "-------------------------------------------"
            echo "Do you want to install this package? (Y/N)"
-           read -p "Y/N: " OKAY
+           read -p ">> Y/N: " OKAY
            OKAY=$(echo "$OKAY" | tr '[:lower:]' '[:upper:]')
+           echo ""
            if [ "$OKAY" = "Y" ]; then
               sudo apt-get install -y "$INPUT"
               echo ""
@@ -119,8 +120,9 @@ if $option_p; then
                  echo "$INPUT Package Installation Failed"
               fi
            elif [ "$OKAY" = "N" ]; then
-               echo "if you want to install package"
-               read -p "Select Option: " CHOICE
+               echo "Enter a number to download one of those three packages"
+               echo "Other numbers shut down the system"
+               read -p ">> Select Option: " CHOICE
                if [ "$CHOICE" -eq 1 ]; then
                    TARGET_PACKAGE=$NAME
                elif [ "$CHOICE" -eq 2 ]; then
@@ -153,7 +155,7 @@ if $option_p; then
            echo "3. ${RESULT_ARRAY[6]}: ${RESULT_ARRAY[5]}"
            echo "-------------------------------------------"
            echo "Do you want to install this package? (Y/N)"
-           read -p "Y/N: " OKAY
+           read -p ">> Y/N: " OKAY
            OKAY=$(echo "$OKAY" | tr '[:lower:]' '[:upper:]')
            if [ "$OKAY" = "Y" ]; then
                sudo apt-get install -y "$INPUT"
@@ -164,7 +166,7 @@ if $option_p; then
               fi
            elif [ "$OKAY" = "N" ]; then
                echo "if you want to install package"
-               read -p "Select Option: " CHOICE
+               read -p ">> Select Option: " CHOICE
                if [ "$CHOICE" -eq 1 ]; then
                    TARGET_PACKAGE=$NAME
                elif [ "$CHOICE" -eq 2 ]; then

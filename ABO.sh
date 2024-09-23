@@ -97,7 +97,7 @@ if $option_p; then
            fi
         elif [ "$STATE" -eq 1 ]; then
            echo "This package is $ACCURACY similarity to $NAME."
-           echo -e "\033[31m There's a possibility that it's typosquoting\033[0m"
+           echo -e "\033[31mThere's a possibility that it's typosquoting\033[0m"
            echo -e "Please check the package you entered again ($INPUT)\n"
            echo "-------------------------------------------"
            echo "PackgeName: Similarity"

@@ -79,7 +79,6 @@ def compare_jaro_winkler(similarities_list: list, input_word: str):
         if similarity > 0.7 and abs(len(input_word) - len(name)) < 3:
             second_round_similarities.append((name, similarity))
 
-    first_round_similarities.sort(key=lambda x: x[1], reverse=True)
     
     return second_round_similarities
 

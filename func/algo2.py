@@ -42,6 +42,7 @@ def jaro_winkler(str1: str, str2: str) -> float:
 
     return jaro + 0.1 * prefix_len * (1 - jaro)
 
+
 # Jaccard 유사도 계산 함수
 def calculate_jaccard_similarity(doc1: str, doc2: str) -> float:
     doc1_tokenized = set(doc1)
@@ -77,7 +78,9 @@ def compare_jaro_winkler(similarities_list: list, input_word: str):
     for name, similarity in similarities:
         if similarity > 0.7 and abs(len(input_word) - len(name)) < 3:
             second_round_similarities.append((name, similarity))
-        
+
+    first_round_similarities.sort(key=lambda x: x[1], reverse=True)
+    
     return second_round_similarities
 
 def select_by_first_word(name: str, name_list: list) -> list:

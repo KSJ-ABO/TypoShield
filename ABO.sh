@@ -91,7 +91,7 @@ if $option_p; then
            echo ""
            sudo apt-get install -y "$INPUT"
            echo ""
-           if [$? -eq 0]; then
+           if [ $? -eq 0 ]; then
               echo "$INPUT Package Installation Completed"
            else
               echo "$INPUT Package Installation Failed"
@@ -132,12 +132,12 @@ if $option_p; then
                    exit 1
                fi
                echo "Download Packge: $TARGET_PACKAGE"
-               sudo apt-get install -y "$TARGET_PACKGE"
+               sudo apt-get install -y "$TARGET_PACKAGE"
                echo ""
                if [ $? -eq 0 ]; then
-                  echo "$TARGET_PACKGE Package Installation Completed"
+                  echo "$TARGET_PACKAGE Package Installation Completed"
               else
-                 echo "$TARGET_PACKGE Package Installation Failed"
+                 echo "$TARGET_PACKAGE Package Installation Failed"
               fi
            else   
               exit 1
@@ -176,12 +176,12 @@ if $option_p; then
                    exit 1
                fi
                echo "Download Packge: $TARGET_PACKAGE"
-               sudo apt-get install -y "$TARGET_PACKGE"
+               sudo apt-get install -y "$TARGET_PACKAGE"
                echo ""
                if [ $? -eq 0 ]; then
-                  echo "$TARGET_PACKGE Package Installation Completed"
+                  echo "$TARGET_PACKAGE Package Installation Completed"
               else
-                 echo "$TARGET_PACKGE Package Installation Failed"
+                 echo "$TARGET_PACKAGE Package Installation Failed"
               fi 
            else
               echo "DONE."

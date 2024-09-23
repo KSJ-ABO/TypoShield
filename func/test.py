@@ -34,4 +34,4 @@ if cnt > 0:
     else:
         print("%2lf %s %d %2lf %s %2lf %s" % (accuracy, name, 2, accuracy2, name2, accuracy3, name3))
 else:
-    print("%d", 0)
+    print("%2lf", 0)

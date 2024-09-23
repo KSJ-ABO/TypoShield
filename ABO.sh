@@ -76,7 +76,7 @@ if $option_p; then
     #    STATE=${DATA[2]}
 
     echo ""
-    RESULT=$(python3 ./func/test.py "$INPUT")
+    RESULT=$(python3 ./func/func.py "$INPUT")
     RESULT_ARRAY=($RESULT) # 결과 순서가 (test, 유사도, 1)인 경우로 가정
        
     ACCURACY=${RESULT_ARRAY[0]}

@@ -84,7 +84,7 @@ if $option_p; then
     STATE=${RESULT_ARRAY[2]}
 
 
-    if (( $(echo "$ACCURACY == 0" | bc -l) )); then
+    if (( $(echo "$ACCURACY != 0" | bc -l) )); then
         if [ "$STATE" -eq 0 ]; then
            echo "No typosquotting probabilities found in $INPUT package."
            echo "Download the package..."

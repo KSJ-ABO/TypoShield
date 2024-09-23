@@ -82,111 +82,116 @@ if $option_p; then
     ACCURACY=${RESULT_ARRAY[0]}
     NAME=${RESULT_ARRAY[1]}
     STATE=${RESULT_ARRAY[2]}
-    
-    if [ "$STATE" -eq 0 ]; then
-       echo "No typosquotting probabilities found in $INPUT package."
-       echo "Download the package..."
-       echo ""
-       sudo apt-get install -y "$INPUT"
-       echo ""
-       if [$? -eq 0]; then
-          echo "$INPUT Package Installation Completed"
-       else
-          echo "$INPUT Package Installation Failed"
-       fi
-    elif [ "$STATE" -eq 1 ]; then
-       echo "This package is $ACCURACY similarity to $NAME."
-       echo "There's a possibility that it's typosquoting"
-       echo "Please check the package you entered again ($INPUT)"
-       echo "-------------------------------------------"
-       echo "PackgeName: Similarity"
-       echo "-------------------------------------------"
-       echo "1. $NAME: $ACCURACY"
-       echo "2. ${RESULT_ARRAY[4]}: ${RESULT_ARRAY[3]}"
-       echo "3. ${RESULT_ARRAY[6]}: ${RESULT_ARRAY[5]}"
-       echo "-------------------------------------------"
-       echo "Do you want to install this package? (Y/N)"
-       read -p "Y/N: " OKAY
-       OKAY=$(echo "$OKAY" | tr '[:lower:]' '[:upper:]')
-       if [ "$OKAY" = "Y" ]; then
-          sudo apt-get install -y "$INPUT"
-          echo ""
-          if [ $? -eq 0 ]; then
-             echo "$INPUT Package Installation Completed"
-          else
-             echo "$INPUT Package Installation Failed"
-          fi
-       elif [ "$OKAY" = "N" ]; then
-           echo "if you want to install package"
-           read -p "Select Option: " CHOICE
-           if [ "$CHOICE" -eq 1 ]; then
-               TARGET_PACKAGE=$NAME
-           elif [ "$CHOICE" -eq 2 ]; then
-               TARGET_PACKAGE=${RESULT_ARRAY[4]}
-           elif [ "$CHOICE" -eq 3 ]; then
-               TARGET_PACKAGE=${RESULT_ARRAY[6]}
-           else
-               echo "System Finish"
-               exit 1
-           fi
-           echo "Download Packge: $TARGET_PACKAGE"
-           sudo apt-get install -y "$TARGET_PACKGE"
+
+
+    if [ "$ACCURACY" -eq 0]; then
+        if [ "$STATE" -eq 0 ]; then
+           echo "No typosquotting probabilities found in $INPUT package."
+           echo "Download the package..."
            echo ""
-           if [ $? -eq 0 ]; then
-              echo "$TARGET_PACKGE Package Installation Completed"
-          else
-             echo "$TARGET_PACKGE Package Installation Failed"
-          fi
-       else   
-          exit 1
-       fi
-    elif [ "$STATE" -eq 2 ]; then
-       echo "$INPUT This package is less likely to be a typosquotting package."
-       echo "It could be a user package.."
-       echo "-------------------------------------------"
-       echo "PackgeName: Similarity"
-       echo "-------------------------------------------"
-       echo "1. $NAME: $ACCURACY"
-       echo "2. ${RESULT_ARRAY[4]}: ${RESULT_ARRAY[3]}"
-       echo "3. ${RESULT_ARRAY[6]}: ${RESULT_ARRAY[5]}"
-       echo "-------------------------------------------"
-       echo "Do you want to install this package? (Y/N)"
-       read -p "Y/N: " OKAY
-       OKAY=$(echo "$OKAY" | tr '[:lower:]' '[:upper:]')
-       if [ "$OKAY" = "Y" ]; then
            sudo apt-get install -y "$INPUT"
-          if [ $? -eq 0 ]; then
-              echo "$INPUT Package Installation Completed"
-          else
-             echo "$INPUT Package Installation Failed"
-          fi
-       elif [ "$OKAY" = "N" ]; then
-           echo "if you want to install package"
-           read -p "Select Option: " CHOICE
-           if [ "$CHOICE" -eq 1 ]; then
-               TARGET_PACKAGE=$NAME
-           elif [ "$CHOICE" -eq 2 ]; then
-               TARGET_PACKAGE=${RESULT_ARRAY[4]}
-           elif [ "$CHOICE" -eq 3 ]; then
-               TARGET_PACKAGE=${RESULT_ARRAY[6]}
-           else
-               echo "System finish"
-               exit 1
-           fi
-           echo "Download Packge: $TARGET_PACKAGE"
-           sudo apt-get install -y "$TARGET_PACKGE"
            echo ""
-           if [ $? -eq 0 ]; then
-              echo "$TARGET_PACKGE Package Installation Completed"
-          else
-             echo "$TARGET_PACKGE Package Installation Failed"
-          fi 
-       else
-          echo "DONE."
-          exit 1
-       fi
+           if [$? -eq 0]; then
+              echo "$INPUT Package Installation Completed"
+           else
+              echo "$INPUT Package Installation Failed"
+           fi
+        elif [ "$STATE" -eq 1 ]; then
+           echo "This package is $ACCURACY similarity to $NAME."
+           echo "There's a possibility that it's typosquoting"
+           echo "Please check the package you entered again ($INPUT)"
+           echo "-------------------------------------------"
+           echo "PackgeName: Similarity"
+           echo "-------------------------------------------"
+           echo "1. $NAME: $ACCURACY"
+           echo "2. ${RESULT_ARRAY[4]}: ${RESULT_ARRAY[3]}"
+           echo "3. ${RESULT_ARRAY[6]}: ${RESULT_ARRAY[5]}"
+           echo "-------------------------------------------"
+           echo "Do you want to install this package? (Y/N)"
+           read -p "Y/N: " OKAY
+           OKAY=$(echo "$OKAY" | tr '[:lower:]' '[:upper:]')
+           if [ "$OKAY" = "Y" ]; then
+              sudo apt-get install -y "$INPUT"
+              echo ""
+              if [ $? -eq 0 ]; then
+                 echo "$INPUT Package Installation Completed"
+              else
+                 echo "$INPUT Package Installation Failed"
+              fi
+           elif [ "$OKAY" = "N" ]; then
+               echo "if you want to install package"
+               read -p "Select Option: " CHOICE
+               if [ "$CHOICE" -eq 1 ]; then
+                   TARGET_PACKAGE=$NAME
+               elif [ "$CHOICE" -eq 2 ]; then
+                   TARGET_PACKAGE=${RESULT_ARRAY[4]}
+               elif [ "$CHOICE" -eq 3 ]; then
+                   TARGET_PACKAGE=${RESULT_ARRAY[6]}
+               else
+                   echo "System Finish"
+                   exit 1
+               fi
+               echo "Download Packge: $TARGET_PACKAGE"
+               sudo apt-get install -y "$TARGET_PACKGE"
+               echo ""
+               if [ $? -eq 0 ]; then
+                  echo "$TARGET_PACKGE Package Installation Completed"
+              else
+                 echo "$TARGET_PACKGE Package Installation Failed"
+              fi
+           else   
+              exit 1
+           fi
+        elif [ "$STATE" -eq 2 ]; then
+           echo "$INPUT This package is less likely to be a typosquotting package."
+           echo "It could be a user package.."
+           echo "-------------------------------------------"
+           echo "PackgeName: Similarity"
+           echo "-------------------------------------------"
+           echo "1. $NAME: $ACCURACY"
+           echo "2. ${RESULT_ARRAY[4]}: ${RESULT_ARRAY[3]}"
+           echo "3. ${RESULT_ARRAY[6]}: ${RESULT_ARRAY[5]}"
+           echo "-------------------------------------------"
+           echo "Do you want to install this package? (Y/N)"
+           read -p "Y/N: " OKAY
+           OKAY=$(echo "$OKAY" | tr '[:lower:]' '[:upper:]')
+           if [ "$OKAY" = "Y" ]; then
+               sudo apt-get install -y "$INPUT"
+              if [ $? -eq 0 ]; then
+                  echo "$INPUT Package Installation Completed"
+              else
+                 echo "$INPUT Package Installation Failed"
+              fi
+           elif [ "$OKAY" = "N" ]; then
+               echo "if you want to install package"
+               read -p "Select Option: " CHOICE
+               if [ "$CHOICE" -eq 1 ]; then
+                   TARGET_PACKAGE=$NAME
+               elif [ "$CHOICE" -eq 2 ]; then
+                   TARGET_PACKAGE=${RESULT_ARRAY[4]}
+               elif [ "$CHOICE" -eq 3 ]; then
+                   TARGET_PACKAGE=${RESULT_ARRAY[6]}
+               else
+                   echo "System finish"
+                   exit 1
+               fi
+               echo "Download Packge: $TARGET_PACKAGE"
+               sudo apt-get install -y "$TARGET_PACKGE"
+               echo ""
+               if [ $? -eq 0 ]; then
+                  echo "$TARGET_PACKGE Package Installation Completed"
+              else
+                 echo "$TARGET_PACKGE Package Installation Failed"
+              fi 
+           else
+              echo "DONE."
+              exit 1
+           fi
+        else
+           echo "System Error"
+    fi
     else
-       echo "System Error"
+        echo "유사한 패키지가 없습니다."
     fi
 fi
 

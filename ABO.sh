@@ -133,7 +133,9 @@ if $option_p; then
                    echo "System Finish"
                    exit 1
                fi
+               echo ""
                echo "Download Packge: $TARGET_PACKAGE"
+               echo ""
                sudo apt-get install -y "$TARGET_PACKAGE"
                echo ""
                if [ $? -eq 0 ]; then

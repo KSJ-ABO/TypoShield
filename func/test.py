@@ -11,7 +11,7 @@ if cnt > 0:
     array =list[0]
     name =array[0]
     accuracy=array[1]
-    try:
+    if cnt == 3:
         array2 =list[1]
         name2 =array2[0]
         accuracy2=array2[1]
@@ -19,7 +19,14 @@ if cnt > 0:
         array3 =list[2]
         name3 = array3[0]
         accuracy3 = array3[1]
-    except:
+    elif cnt == 2:
+        array2 =list[1]
+        name2 =array2[0]
+        accuracy2=array2[1]
+
+        name3 = ""
+        accuracy3 = 0
+    else:
         name2 =""
         accuracy2=0
         

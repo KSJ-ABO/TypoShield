@@ -97,15 +97,15 @@ if $option_p; then
            fi
         elif [ "$STATE" -eq 1 ]; then
            echo "This package is $ACCURACY similarity to $NAME."
-           echo "There's a possibility that it's typosquoting"
-           echo "Please check the package you entered again ($INPUT)"
+           echo -e "\033[31m There's a possibility that it's typosquoting[0m"
+           echo -e "Please check the package you entered again ($INPUT)\n"
            echo "-------------------------------------------"
            echo "PackgeName: Similarity"
            echo "-------------------------------------------"
            echo "1. $NAME: $ACCURACY"
            echo "2. ${RESULT_ARRAY[4]}: ${RESULT_ARRAY[3]}"
            echo "3. ${RESULT_ARRAY[6]}: ${RESULT_ARRAY[5]}"
-           echo "-------------------------------------------"
+           echo -e "-------------------------------------------\n"
            echo "Do you want to install this package? (Y/N)"
            read -p ">> Y/N: " OKAY
            OKAY=$(echo "$OKAY" | tr '[:lower:]' '[:upper:]')
@@ -144,14 +144,14 @@ if $option_p; then
            fi
         elif [ "$STATE" -eq 2 ]; then
            echo "This package is less likely to be a typosquotting package. ($INPUT)"
-           echo "It could be a user package.."
+           echo -e "It could be a user package..\n"
            echo "-------------------------------------------"
            echo "PackgeName: Similarity"
            echo "-------------------------------------------"
            echo "1. $NAME: $ACCURACY"
            echo "2. ${RESULT_ARRAY[4]}: ${RESULT_ARRAY[3]}"
            echo "3. ${RESULT_ARRAY[6]}: ${RESULT_ARRAY[5]}"
-           echo "-------------------------------------------"
+           echo -e "-------------------------------------------\n"
            echo "Do you want to install this package? (Y/N)"
            
            read -p ">> Y/N: " OKAY

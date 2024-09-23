@@ -91,9 +91,9 @@ if $option_p; then
            echo ""
            sudo apt-get install -y "$INPUT"
            if [ $? -eq 0 ]; then
-              echo "\n$INPUT Package Installation Completed"
+              echo -e "\n$INPUT Package Installation Completed"
            else
-              echo "\n$INPUT Package Installation Failed"
+              echo -e "\n$INPUT Package Installation Failed"
            fi
         elif [ "$STATE" -eq 1 ]; then
            echo "This package is $ACCURACY similarity to $NAME."
@@ -114,9 +114,9 @@ if $option_p; then
               sudo apt-get install -y "$INPUT"
               echo ""
               if [ $? -eq 0 ]; then
-                 echo "\n$INPUT Package Installation Completed"
+                 echo -e "\n$INPUT Package Installation Completed"
               else
-                 echo "\n$INPUT Package Installation Failed"
+                 echo -e "\n$INPUT Package Installation Failed"
               fi
            elif [ "$OKAY" = "N" ]; then
                echo "Enter a number to download one of those three packages"
@@ -136,9 +136,9 @@ if $option_p; then
                echo "Download Packge: $TARGET_PACKAGE\n\n"
                sudo apt-get install -y "$TARGET_PACKAGE"
                if [ $? -eq 0 ]; then
-                  echo "\n$TARGET_PACKAGE Package Installation Completed"
+                  echo -e "\n$TARGET_PACKAGE Package Installation Completed"
               else
-                 echo "\n$TARGET_PACKAGE Package Installation Failed"
+                 echo -e "\n$TARGET_PACKAGE Package Installation Failed"
               fi
            else   
               exit 1
@@ -159,9 +159,9 @@ if $option_p; then
            if [ "$OKAY" = "Y" ]; then
                sudo apt-get install -y "$INPUT"
               if [ $? -eq 0 ]; then
-                  echo "\n$INPUT Package Installation Completed"
+                  echo -e "\n$INPUT Package Installation Completed"
               else
-                 echo "\n$INPUT Package Installation Failed"
+                 echo -e "\n$INPUT Package Installation Failed"
               fi
            elif [ "$OKAY" = "N" ]; then
                echo "if you want to install package"
@@ -176,12 +176,12 @@ if $option_p; then
                    echo "System finish"
                    exit 1
                fi
-               echo "Download Packge: $TARGET_PACKAGE\n"
+               echo "Download Packge: $TARGET_PACKAGE"
                sudo apt-get install -y "$TARGET_PACKAGE"
                if [ $? -eq 0 ]; then
-                  echo "\n$TARGET_PACKAGE Package Installation Completed"
+                  echo -e "\n$TARGET_PACKAGE Package Installation Completed"
               else
-                 echo "\n$TARGET_PACKAGE Package Installation Failed"
+                 echo -e "\n$TARGET_PACKAGE Package Installation Failed"
               fi 
            else
               echo "DONE."

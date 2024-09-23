@@ -166,7 +166,8 @@ if $option_p; then
                  echo -e "\n$INPUT Package Installation Failed"
               fi
            elif [ "$OKAY" = "N" ]; then
-               echo "if you want to install package"
+               echo "Enter a number to download one of those three packages"
+               echo "Other numbers shut down the system"
                read -p ">> Select Option: " CHOICE
                if [ "$CHOICE" -eq 1 ]; then
                    TARGET_PACKAGE=$NAME

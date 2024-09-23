@@ -189,7 +189,7 @@ if $option_p; then
            fi
         else
            echo "System Error"
-    fi
+        fi
     else
         echo "유사한 패키지가 없습니다."
     fi

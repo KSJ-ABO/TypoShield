@@ -8,6 +8,8 @@ def get_imported_packages(file_path):
         print(f"오류: '{file_path}' 파일이 존재하지 않습니다.")
         return []
 
+    packages = set()
+    
     with open(file_path, 'r') as file:
         code = file.read()
         try:

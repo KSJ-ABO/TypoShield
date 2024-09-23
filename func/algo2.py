@@ -120,7 +120,12 @@ def main(input_words):
         second_round_similarities = select_by_first_word(input_word, name_list)
         results.append((input_word, second_round_similarities))
     
-    return results
+    sorted_results = []
+    for input_word, similarities in results:
+        sorted_similarities = sorted(similarities, key=lambda x: x[1], reverse=True)
+        sorted_results.append((input_word, sorted_similarities))
+    
+    return sorted_results
 
 
 

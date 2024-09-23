@@ -11,14 +11,22 @@ if cnt > 0:
     array =list[0]
     name =array[0]
     accuracy=array[1]
-    
-    array2 =list[1]
-    name2 =array2[0]
-    accuracy2=array2[1]
-    
-    array3 =list[2]
-    name3 = array3[0]
-    accuracy3 = array3[1]
+    try:
+        array2 =list[1]
+        name2 =array2[0]
+        accuracy2=array2[1]
+        
+        array3 =list[2]
+        name3 = array3[0]
+        accuracy3 = array3[1]
+    except:
+        array2 =list[1]
+        name2 =array2[0]
+        accuracy2=array2[1]
+        
+        array3 = ""
+        name3 = ""
+        accuracy3 = ""
     if accuracy == 1:
         print("%2lf %s %d" % (accuracy, name, 0))
     elif accuracy > 0.9 :

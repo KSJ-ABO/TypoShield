@@ -112,7 +112,6 @@ if $option_p; then
            echo ""
            if [ "$OKAY" = "Y" ]; then
               sudo apt-get install -y "$INPUT"
-              echo ""
               if [ $? -eq 0 ]; then
                  echo -e "\n$INPUT Package Installation Completed"
               else
@@ -133,7 +132,7 @@ if $option_p; then
                    exit 1
                fi
                echo ""
-               echo "Download Packge: $TARGET_PACKAGE\n\n"
+               echo -e "Download Packge: $TARGET_PACKAGE\n"
                sudo apt-get install -y "$TARGET_PACKAGE"
                if [ $? -eq 0 ]; then
                   echo -e "\n$TARGET_PACKAGE Package Installation Completed"
@@ -144,7 +143,7 @@ if $option_p; then
               exit 1
            fi
         elif [ "$STATE" -eq 2 ]; then
-           echo "$INPUT This package is less likely to be a typosquotting package."
+           echo "This package is less likely to be a typosquotting package. ($INPUT)"
            echo "It could be a user package.."
            echo "-------------------------------------------"
            echo "PackgeName: Similarity"
@@ -154,9 +153,12 @@ if $option_p; then
            echo "3. ${RESULT_ARRAY[6]}: ${RESULT_ARRAY[5]}"
            echo "-------------------------------------------"
            echo "Do you want to install this package? (Y/N)"
+           
            read -p ">> Y/N: " OKAY
            OKAY=$(echo "$OKAY" | tr '[:lower:]' '[:upper:]')
            if [ "$OKAY" = "Y" ]; then
+               echo ""
+               echo -e "Download Packge: $TARGET_PACKAGE\n"
                sudo apt-get install -y "$INPUT"
               if [ $? -eq 0 ]; then
                   echo -e "\n$INPUT Package Installation Completed"
@@ -176,7 +178,7 @@ if $option_p; then
                    echo "System finish"
                    exit 1
                fi
-               echo "Download Packge: $TARGET_PACKAGE"
+               echo -e "Download Packge: $TARGET_PACKAGE\n"
                sudo apt-get install -y "$TARGET_PACKAGE"
                if [ $? -eq 0 ]; then
                   echo -e "\n$TARGET_PACKAGE Package Installation Completed"

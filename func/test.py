@@ -20,13 +20,11 @@ if cnt > 0:
         name3 = array3[0]
         accuracy3 = array3[1]
     except:
-        array2 =list[1]
-        name2 =array2[0]
-        accuracy2=array2[1]
+        name2 =""
+        accuracy2=0
         
-        array3 = ""
         name3 = ""
-        accuracy3 = ""
+        accuracy3 = 0
     if accuracy == 1:
         print("%2lf %s %d" % (accuracy, name, 0))
     elif accuracy > 0.9 :

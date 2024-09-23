@@ -11,7 +11,7 @@ if cnt > 0:
     array =list[0]
     name =array[0]
     accuracy=array[1]
-    if cnt == 3:
+    if cnt >= 3:
         array2 =list[1]
         name2 =array2[0]
         accuracy2=array2[1]
@@ -26,12 +26,13 @@ if cnt > 0:
 
         name3 = ""
         accuracy3 = 0
-    else:
+    elif cnt == 1:
         name2 =""
         accuracy2=0
         
         name3 = ""
         accuracy3 = 0
+        
     if accuracy == 1:
         print("%2lf %s %d" % (accuracy, name, 0))
     elif accuracy > 0.9 :

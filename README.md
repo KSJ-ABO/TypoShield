@@ -45,7 +45,7 @@ debian.org 에서 인기 패키지 기준 상위 72,679개의 패키지에서 �
 해당 저장소를 git 명령을 통해 복제하여 ABO.sh 의 실행을 통해 사용합니다.<br>
 처음 사용 시 ABO.sh에 실행 권한을 부여하여 사용하면 됩니다.<br>
 ```
-git clone
+git clone https://github.com/KSJ-ABO/ABO.git
 cd ./ABO
 chmod +x ./ABO.sh
 ./ABO.sh [-c] [-p] [파이썬 코드파일 경로/다운받으려는 패키지명]

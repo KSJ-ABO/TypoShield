@@ -21,11 +21,14 @@ while getopts "pc" opt; do
     p)
       option_p=true
       option_c=false
+      if [ -z $2 ]; then
+          echo "[-p] [package_name]: install package"
+      fi
       ;;
     c)
       option_c=true
       option_p=false
-      if [ !$2 ]; then
+      if [ -z $2 ]; then
           echo "[-c] [file_path]: check python code file pakage "
       fi
       ;;
@@ -39,6 +42,8 @@ while getopts "pc" opt; do
 done
 
 INPUT=$2
+
+clear;
 
 if $option_p; then
     EXIST=$(apt-cache search "$INPUT" | grep -w "$INPUT")
@@ -203,6 +208,7 @@ fi
 
 if $option_c; then
     echo "Explore the package of that path Python file..."
+    echo""
     LIST=$(python3 ./func/code_check.py "$INPUT")
     
     if [ $? -eq 0 ]; then
@@ -212,5 +218,4 @@ if $option_c; then
     else
         echo "System Error"
    fi
-   echo "System Finished"
 fi

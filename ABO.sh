@@ -86,7 +86,7 @@ if $option_p; then
 
     if (( $(echo "$ACCURACY != 0" | bc -l) )); then
         if [ "$STATE" -eq 0 ]; then
-           echo "No typosquotting probabilities found in $INPUT package."
+           echo -e "\033[32mNo typosquotting probabilities found in $INPUT package.\033[330"
            echo "Download the package..."
            echo ""
            sudo apt-get install -y "$INPUT"
@@ -143,7 +143,7 @@ if $option_p; then
               exit 1
            fi
         elif [ "$STATE" -eq 2 ]; then
-           echo "This package is less likely to be a typosquotting package. ($INPUT)"
+           echo -e "\033[33mThis package is less likely to be a typosquotting package. ($INPUT)\033[0m"
            echo -e "It could be a user package..\n"
            echo "-------------------------------------------"
            echo "PackgeName: Similarity"

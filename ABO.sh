@@ -23,6 +23,7 @@ while getopts "pc" opt; do
       option_c=false
       if [ -z $2 ]; then
           echo "[-p] [package_name]: install package"
+          ext 1
       fi
       ;;
     c)
@@ -30,6 +31,7 @@ while getopts "pc" opt; do
       option_p=false
       if [ -z $2 ]; then
           echo "[-c] [file_path]: check python code file pakage "
+          exit 1
       fi
       ;;
     *)

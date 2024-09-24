@@ -12,9 +12,15 @@
 기존 패키지와 입력한 패키지명의 유사도를 계산하여, 유사도를 기준으로 판별합니다.<br>
 <table> 
   <thread>
-    <tr>
-      유사도
-    </tr>
+    <tr>유사도</tr>
+    <tr>정상</tr>
+  </thread>
+  <thread>
+    <tr>유사도</tr>
+    <tr>정상</tr>
+  </thread>
+  <thread>
+    <tr>유사도</tr>
     <tr>정상</tr>
   </thread>
 </table>

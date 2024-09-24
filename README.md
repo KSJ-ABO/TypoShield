@@ -42,7 +42,7 @@ debian.org 에서 인기 패키지 기준 상위 72,679개의 패키지에서 �
 또한 해당 프로그램은 ABO 프로젝트 개발 서버 내부의 DB를 사용하고 있습니다.<br>
 해당 서버를 닫을 시 프로그램이 원활히 동작되지 않으며, 이 경우 사용자가 임의로 데이터베이스를 구축하여 사용할 수 있습니다.<br>
 <br>
-DataBaseName: PackageName
+DatabaseName: PackageName
 <table>
   
   <tr>

@@ -11,9 +11,9 @@
 -------------
 기존 패키지와 입력한 패키지명의 유사도를 계산하여, 유사도를 기준으로 판별합니다.<br>
 <table>
-  <tr sytle="backgroundColor="blue">
-    <th> 유사도 >= 0.9 </th>
-    <th> 오타스쿼팅 겨냥 패키지 </th>
+  <tr sytle="background-color="blue">
+    <th> 유사도 </th>
+    <th> 판별 결과 </th>
   </tr>
   <tr>
     <th> 유사도 = 1 </th>

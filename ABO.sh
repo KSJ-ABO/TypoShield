@@ -86,7 +86,7 @@ if $option_p; then
 
     if (( $(echo "$ACCURACY != 0" | bc -l) )); then
         if [ "$STATE" -eq 0 ]; then
-           echo -e "\033[32mNo typosquotting probabilities found in $INPUT package.\033[330"
+           echo -e "\033[32mNo typosquotting probabilities found in $INPUT package.\033[0m"
            echo "Download the package..."
            echo ""
            sudo apt-get install -y "$INPUT"

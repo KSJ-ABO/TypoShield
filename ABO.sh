@@ -25,6 +25,9 @@ while getopts "pc" opt; do
     c)
       option_c=true
       option_p=false
+      if [ !$2 ]; then
+          echo "[-c] [file_path]: check python code file pakage "
+      fi
       ;;
     *)
       echo "Usage: $0 [-p] [-c]"

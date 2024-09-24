@@ -183,7 +183,6 @@ if $option_p; then
                elif [ "$CHOICE" -eq 3 ]; then
                    TARGET_PACKAGE=${RESULT_ARRAY[6]}
                else
-                   echo "System finish"
                    exit 1
                fi
                echo -e "Download Packge: $TARGET_PACKAGE\n"
@@ -194,7 +193,6 @@ if $option_p; then
                  echo -e "\n$TARGET_PACKAGE Package Installation Failed"
               fi 
            else
-              echo "DONE."
               exit 1
            fi
         else

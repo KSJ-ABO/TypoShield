@@ -199,8 +199,12 @@ if $option_p; then
 fi
 
 if $option_c; then
+    echo "Explore the package of that path Python file"
     LIST=$(python3 ./func/code_check.py "$INPUT")
+    
     if [ $? -eq 0 ]; then
+        echo "Package List: $LIST"
+        echo "Prints a list of up to four similarities"
         python3 ./func/get_len.py "$LIST"
     else
         echo "System Error"

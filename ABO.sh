@@ -136,7 +136,6 @@ if $option_p; then
                elif [ "$CHOICE" -eq 3 ]; then
                    TARGET_PACKAGE=${RESULT_ARRAY[6]}
                else
-                   echo "System Finish"
                    exit 1
                fi
                echo ""

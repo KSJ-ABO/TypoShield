@@ -43,7 +43,7 @@ debian.org 에서 인기 패키지 기준 상위 72,679개의 패키지에서 �
 해당 서버를 닫을 시 프로그램이 원활히 동작되지 않으며, 이 경우 사용자가 임의로 데이터베이스를 구축하여 사용할 수 있습니다.<br>
 <table>
   <tr>
-    <th>PackageName</th>
+    PackageName
   </tr>
   <tr>
     <th>Field</th><th>Type</th>

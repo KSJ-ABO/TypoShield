@@ -11,18 +11,18 @@
 -------------
 기존 패키지와 입력한 패키지명의 유사도를 계산하여, 유사도를 기준으로 판별합니다.<br>
 <table> 
-  <thread>
-    <tr>유사도</tr>
-    <tr>정상</tr>
-  </thread>
-  <thread>
-    <tr>유사도</tr>
-    <tr>정상</tr>
-  </thread>
-  <thread>
-    <tr>유사도</tr>
-    <tr>정상</tr>
-  </thread>
+  <tr>
+    <th>유사도</th>
+    <th>정상</th>
+  </tr>
+  <tr>
+    <th>유사도</th>
+    <th>정상</th>
+  </tr>
+  <tr>
+    <th>유사도</th>
+    <th>정상</th>
+  </tr>
 </table>
 유사도 = 1: 정상 패키지<br>
 유사도 > 0.9: 오타스쿼팅 겨냥 패키지<br>

@@ -44,7 +44,7 @@ debian.org 에서 인기 패키지 기준 상위 72,679개의 패키지에서 �
 <br>
 
 <table>
-  <b>DataBaseName: PackageName>/b>
+  <b>DataBaseName: PackageName</b>
   <tr>
     <th>Field</th><th>Type</th>
   </tr>

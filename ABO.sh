@@ -48,7 +48,7 @@ clear;
 if $option_p; then
     EXIST=$(apt-cache search "$INPUT" | grep -w "$INPUT")
     echo ""
-    echo "<typo Squatting Detection System for Packages>"
+    echo -e "\033[1m<typo Squatting Detection System for Packages>\033[0m"
     echo ""
     if [ -z "$EXIST" ]; then
        echo "No such packages were found."
@@ -114,7 +114,7 @@ if $option_p; then
            echo "2. ${RESULT_ARRAY[4]}: ${RESULT_ARRAY[3]}"
            echo "3. ${RESULT_ARRAY[6]}: ${RESULT_ARRAY[5]}"
            echo -e "-------------------------------------------\n"
-           echo "Do you want to install this package? (Y/N)"
+           echo -e "Do you want to install this package? \033[1m(Y/N)\033[0m"
            read -p ">> Y/N: " OKAY
            OKAY=$(echo "$OKAY" | tr '[:lower:]' '[:upper:]')
            echo ""
@@ -159,7 +159,7 @@ if $option_p; then
            echo "2. ${RESULT_ARRAY[4]}: ${RESULT_ARRAY[3]}"
            echo "3. ${RESULT_ARRAY[6]}: ${RESULT_ARRAY[5]}"
            echo -e "-------------------------------------------\n"
-           echo "Do you want to install this package? (Y/N)"
+           echo -e "Do you want to install this package? \033[1m(Y/N)\033[0m"
            
            read -p ">> Y/N: " OKAY
            OKAY=$(echo "$OKAY" | tr '[:lower:]' '[:upper:]')

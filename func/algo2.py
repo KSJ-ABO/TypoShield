@@ -96,8 +96,8 @@ def select_by_first_word(name: str, name_list: list) -> list:
 
 def load_package_names() -> list:
     conn = pymysql.connect(
-    host='localhost',
-    user='ABO',
+    host='211.188.53.248',
+    user='ABO_USER',
     password='!@ABOkSj0812@!',
     database='ABO',
     charset='utf8'

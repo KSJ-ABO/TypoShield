@@ -89,7 +89,7 @@ def find_similar_names(input_word: str, name_list: list) -> list:
 def select_by_first_word(name: str) -> list:
     conn = pymysql.connect(
     host='localhost',
-    user='ABO',
+    user='ABO_USER',
     password='!@ABOkSj0812@!',
     database='ABO',
     charset='utf8'

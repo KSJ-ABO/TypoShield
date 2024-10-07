@@ -79,26 +79,9 @@ if $option_a; then
     else
         echo "Target Package: $INPUT"
     fi
-    
-    #CHECK=$(python3 cache.py "$INPUT")
-    
-    #if [ $CHECK -eq 0 ]; then
-    #    RESULT=$(python3 ./func/test.py "$INPUT") # 머신러닝에 입력 값 삽입
-    #    RESULT_ARRAY=($RESULT) # 결과 순서가 (test, 유사도, 1)인 경우로 가정
-    #    
-    #    ACCURACY=${RESULT_ARRAY[0]}
-    #    NAME=${RESULT_ARRAY[1]}
-    #    STATE=${RESULT_ARRAY[2]}
-    #    python3 insert_cache.py "$INPUT", "$ACCURACY", "$NAME"
-    #    
-    #else
-    #    DATA=$(python3 cache.py "$INPUT")
-    #    ACCURACY=${DATA[0]}
-    #    NAME=${DATA[1]}
-    #    STATE=${DATA[2]}
 
     echo ""
-    RESULT=$(python3 ./func/func.py "$INPUT")
+    RESULT=$(python3 ./func/func.py "$INPUT" "a")
     RESULT_ARRAY=($RESULT) # 결과 순서가 (test, 유사도, 1)인 경우로 가정
        
     ACCURACY=${RESULT_ARRAY[0]}
@@ -239,7 +222,7 @@ if option_p; then
     fi
     
     echo ""
-    RESULT=$(python3 ./func/func.py "$INPUT")
+    RESULT=$(python3 ./func/func.py "$INPUT" "p")
     RESULT_ARRAY=($RESULT) # 결과 순서가 (test, 유사도, 1)인 경우로 가정
        
     ACCURACY=${RESULT_ARRAY[0]}
@@ -252,7 +235,7 @@ if option_p; then
            echo -e "\033[32mNo typosquotting probabilities found in $INPUT package.\033[0m"
            echo "Download the package..."
            echo ""
-           sudo pip install -y "$INPUT"
+           sudo pip install "$INPUT"
            if [ $? -eq 0 ]; then
               echo -e "\n$INPUT Package Installation Completed"
            else
@@ -274,7 +257,7 @@ if option_p; then
            OKAY=$(echo "$OKAY" | tr '[:lower:]' '[:upper:]')
            echo ""
            if [ "$OKAY" = "Y" ]; then
-              sudo pip install -y "$INPUT"
+              sudo pip install "$INPUT"
               if [ $? -eq 0 ]; then
                  echo -e "\n$INPUT Package Installation Completed"
               else
@@ -295,7 +278,7 @@ if option_p; then
                fi
                echo ""
                echo -e "Download Packge: $TARGET_PACKAGE\n"
-               sudo pip install -y "$TARGET_PACKAGE"
+               sudo pip install "$TARGET_PACKAGE"
                if [ $? -eq 0 ]; then
                   echo -e "\n$TARGET_PACKAGE Package Installation Completed"
               else
@@ -321,7 +304,7 @@ if option_p; then
            if [ "$OKAY" = "Y" ]; then
                echo ""
                echo -e "Download Packge: $TARGET_PACKAGE\n"
-               sudo pip install -y "$INPUT"
+               sudo pip install "$INPUT"
               if [ $? -eq 0 ]; then
                   echo -e "\n$INPUT Package Installation Completed"
               else
@@ -341,7 +324,7 @@ if option_p; then
                    exit 1
                fi
                echo -e "Download Packge: $TARGET_PACKAGE\n"
-               sudo pip install -y "$TARGET_PACKAGE"
+               sudo pip install "$TARGET_PACKAGE"
                if [ $? -eq 0 ]; then
                   echo -e "\n$TARGET_PACKAGE Package Installation Completed"
               else

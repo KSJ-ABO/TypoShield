@@ -58,15 +58,15 @@ DatabaseName: PackageName
 해당 저장소를 git 명령을 통해 복제하여 tss.sh 의 실행을 통해 사용합니다.<br>
 처음 사용 시 tss.sh에 실행 권한을 부여하여 사용하면 됩니다.<br>
 ```
-git clone https://github.com/KSJ-ABO/TypoShield.git
+sudo git clone https://github.com/KSJ-ABO/TypoShield.git
 ```
 ```
-apt install pip && pip install pymysql && pip install bc && pip install python3 
+sudo apt install pip && pip install pymysql && pip install bc && pip install python3 
 ```
 ```
-chmod +x ./tss.sh
+sudo chmod +x ./tss.sh
 ```
 ```
-./tss.sh [-c] [-p] [파이썬 코드파일 경로/다운받으려는 패키지명]
+sudo ./tss.sh [-c] [-p] [파이썬 코드파일 경로/다운받으려는 패키지명]
 ```
 또한 해당 파일은 패키지 다운을 위해 root 권한을 필요로 합니다.

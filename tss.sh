@@ -137,7 +137,7 @@ if $option_a; then
                fi
                echo ""
                echo -e "Download Packge: $TARGET_PACKAGE\n"
-               sudo apt-get install -y "$TARGET_PACKAGE"
+               apt-get install -y "$TARGET_PACKAGE"
                if [ $? -eq 0 ]; then
                   echo -e "\n$TARGET_PACKAGE Package Installation Completed"
               else
@@ -163,7 +163,7 @@ if $option_a; then
            if [ "$OKAY" = "Y" ]; then
                echo ""
                echo -e "Download Packge: $TARGET_PACKAGE\n"
-               sudo apt-get install -y "$INPUT"
+               apt-get install -y "$INPUT"
               if [ $? -eq 0 ]; then
                   echo -e "\n$INPUT Package Installation Completed"
               else
@@ -183,7 +183,7 @@ if $option_a; then
                    exit 1
                fi
                echo -e "Download Packge: $TARGET_PACKAGE\n"
-               sudo apt-get install -y "$TARGET_PACKAGE"
+               apt-get install -y "$TARGET_PACKAGE"
                if [ $? -eq 0 ]; then
                   echo -e "\n$TARGET_PACKAGE Package Installation Completed"
               else
@@ -235,7 +235,7 @@ if $option_p; then
            echo -e "\033[32mNo typosquotting probabilities found in $INPUT package.\033[0m"
            echo "Download the package..."
            echo ""
-           sudo pip install "$INPUT"
+           pip install "$INPUT"
            if [ $? -eq 0 ]; then
               echo -e "\n$INPUT Package Installation Completed"
            else
@@ -257,7 +257,7 @@ if $option_p; then
            OKAY=$(echo "$OKAY" | tr '[:lower:]' '[:upper:]')
            echo ""
            if [ "$OKAY" = "Y" ]; then
-              sudo pip install "$INPUT"
+              pip install "$INPUT"
               if [ $? -eq 0 ]; then
                  echo -e "\n$INPUT Package Installation Completed"
               else
@@ -278,7 +278,7 @@ if $option_p; then
                fi
                echo ""
                echo -e "Download Packge: $TARGET_PACKAGE\n"
-               sudo pip install "$TARGET_PACKAGE"
+               pip install "$TARGET_PACKAGE"
                if [ $? -eq 0 ]; then
                   echo -e "\n$TARGET_PACKAGE Package Installation Completed"
               else
@@ -304,7 +304,7 @@ if $option_p; then
            if [ "$OKAY" = "Y" ]; then
                echo ""
                echo -e "Download Packge: $TARGET_PACKAGE\n"
-               sudo pip install "$INPUT"
+               pip install "$INPUT"
               if [ $? -eq 0 ]; then
                   echo -e "\n$INPUT Package Installation Completed"
               else
@@ -324,7 +324,7 @@ if $option_p; then
                    exit 1
                fi
                echo -e "Download Packge: $TARGET_PACKAGE\n"
-               sudo pip install "$TARGET_PACKAGE"
+               pip install "$TARGET_PACKAGE"
                if [ $? -eq 0 ]; then
                   echo -e "\n$TARGET_PACKAGE Package Installation Completed"
               else

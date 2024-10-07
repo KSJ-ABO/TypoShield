@@ -2,6 +2,7 @@ import sys
 import algo
 
 package = sys.argv[1]
+status = sys.argv[2]
 
 list=algo.main(package)
 

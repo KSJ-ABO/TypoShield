@@ -5,28 +5,21 @@ from tkinter import Tk
 from tkinter.filedialog import askopenfilename
 
 def get_imported_packages(file_path):
-    packages = set()
+    packages = set()  # 패키지명을 저장할 집합
 
     with open(file_path, 'r') as file:
-        code = file.readlines()  # 라인 단위로 읽기
-
-        for line in code:
-            if line.startswith('import ') or line.startswith('from '):
-                try:
-                    # 라인을 ast로 파싱하여 패키지명 추출
-                    node = ast.parse(line)
-                    for subnode in ast.walk(node):
-                        if isinstance(subnode, ast.Import):
-                            for n in subnode.names:
-                                packages.add(n.name)
-                        elif isinstance(subnode, ast.ImportFrom):
-                            packages.add(subnode.module)
-                except SyntaxError:
-                    # 문법 오류가 발생한 경우, 해당 라인을 무시
-                    print(f"문법 오류가 발생한 라인: {line.strip()}")
-                    continue
-                except Exception as e:
-                    print(f"예외가 발생했습니다: {e}")
+        code = file.read()
+        try:
+            tree = ast.parse(code, filename=file_path)
+            # 문법 오류가 없을 경우 패키지명 추가
+            for node in ast.walk(tree):
+                if isinstance(node, ast.Import):
+                    for n in node.names:
+                        packages.add(n.name)  # import 패키지명 추가
+                elif isinstance(node, ast.ImportFrom):
+                    packages.add(node.module)  # from 패키지명 추가
+        except SyntaxError as e:
+            print(f"문법 오류가 발생했습니다: {e}")
 
     return list(packages)
 

@@ -58,7 +58,10 @@ DatabaseName: PackageName
 해당 저장소를 git 명령을 통해 복제하여 tss.sh 의 실행을 통해 사용합니다.<br>
 처음 사용 시 tss.sh에 실행 권한을 부여하여 사용하면 됩니다.<br>
 ```
-git clone https://github.com/KSJ-ABO/ABO.git
+git clone https://github.com/KSJ-ABO/TypoShield.git
+```
+```
+apt install pip && pip install pymysql && pip install bc && pip install python3 
 ```
 ```
 chmod +x ./tss.sh

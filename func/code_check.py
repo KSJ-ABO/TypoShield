@@ -1,34 +1,28 @@
 import ast
 import sys
-import os
-import algo2
-    
-def get_imported_packages(file_path):
-    if not os.path.isfile(file_path):
-        print(f"오류: '{file_path}' 파일이 존재하지 않습니다.")
-        return []
+import subprocess
+from tkinter import Tk
+from tkinter.filedialog import askopenfilename
 
+def get_imported_packages(file_path):
     packages = set()
-    
+
     with open(file_path, 'r') as file:
         code = file.read()
         try:
             tree = ast.parse(code, filename=file_path)
-            # 문법 오류가 없을 경우 패키지명 추가
             for node in ast.walk(tree):
                 if isinstance(node, ast.Import):
                     for n in node.names:
-                        packages.add(n.name)  # import 패키지명 추가
+                        packages.add(n.name)
                 elif isinstance(node, ast.ImportFrom):
-                    packages.add(node.module)  # from 패키지명 추가
+                    packages.add(node.module)
         except SyntaxError as e:
             print(f"문법 오류가 발생했습니다: {e}")
             # 문법 오류가 발생하더라도 패키지 추출을 시도
             for line in code.splitlines():
-                # import 문을 포함한 라인만 추출
                 if line.startswith('import ') or line.startswith('from '):
                     try:
-                        # import 문을 파싱하여 패키지명 추가
                         node = ast.parse(line)
                         for subnode in ast.walk(node):
                             if isinstance(subnode, ast.Import):
@@ -37,19 +31,27 @@ def get_imported_packages(file_path):
                             elif isinstance(subnode, ast.ImportFrom):
                                 packages.add(subnode.module)
                     except SyntaxError:
-                        continue  # 문법 오류 무시하고 계속 진행
-    
+                        continue
+
     return list(packages)
 
-def main(file_path):
-    packages = get_imported_packages(file_path)
-    list=algo2.main(packages)
-    print(list)
+def main():
+    Tk().withdraw()
     
-file_path = sys.argv[1]
-if not file_path:
+    file_path = askopenfilename(title="코드 파일 선택", filetypes=[("Python files", "*.py")])
+    
+    if not file_path:
         print("파일이 선택되지 않았습니다.")
-else:
-    main(file_path)
+        return
     
+    packages = get_imported_packages(file_path)
+    
+    if not packages:
+        print("패키지를 추출할 수 없습니다.")
+        return
+    
+    packages_str = ','.join(packages)
+    subprocess.run([sys.executable, 'algorithm.py', packages_str])
 
+if __name__ == "__main__":
+    main()

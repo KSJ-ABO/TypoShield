@@ -4,7 +4,10 @@ import algo
 package = sys.argv[1]
 status = sys.argv[2]
 
-list=algo.main(package)
+if status=="a":
+    list=algo.main(package)
+elif status == "p":
+    list=algo3.main(package)
 
 cnt = len(list)
 

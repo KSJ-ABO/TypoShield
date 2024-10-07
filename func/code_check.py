@@ -8,30 +8,25 @@ def get_imported_packages(file_path):
     packages = set()
 
     with open(file_path, 'r') as file:
-        code = file.read()
-        try:
-            tree = ast.parse(code, filename=file_path)
-            for node in ast.walk(tree):
-                if isinstance(node, ast.Import):
-                    for n in node.names:
-                        packages.add(n.name)
-                elif isinstance(node, ast.ImportFrom):
-                    packages.add(node.module)
-        except SyntaxError as e:
-            print(f"문법 오류가 발생했습니다: {e}")
-            # 문법 오류가 발생하더라도 패키지 추출을 시도
-            for line in code.splitlines():
-                if line.startswith('import ') or line.startswith('from '):
-                    try:
-                        node = ast.parse(line)
-                        for subnode in ast.walk(node):
-                            if isinstance(subnode, ast.Import):
-                                for n in subnode.names:
-                                    packages.add(n.name)
-                            elif isinstance(subnode, ast.ImportFrom):
-                                packages.add(subnode.module)
-                    except SyntaxError:
-                        continue
+        code = file.readlines()  # 라인 단위로 읽기
+
+        for line in code:
+            if line.startswith('import ') or line.startswith('from '):
+                try:
+                    # 라인을 ast로 파싱하여 패키지명 추출
+                    node = ast.parse(line)
+                    for subnode in ast.walk(node):
+                        if isinstance(subnode, ast.Import):
+                            for n in subnode.names:
+                                packages.add(n.name)
+                        elif isinstance(subnode, ast.ImportFrom):
+                            packages.add(subnode.module)
+                except SyntaxError:
+                    # 문법 오류가 발생한 경우, 해당 라인을 무시
+                    print(f"문법 오류가 발생한 라인: {line.strip()}")
+                    continue
+                except Exception as e:
+                    print(f"예외가 발생했습니다: {e}")
 
     return list(packages)
 

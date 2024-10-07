@@ -17,9 +17,9 @@ if [ -z "$1" ]; then
 fi
 
 # check option
-while getopts "pc" opt; do
+while getopts "apc" opt; do
   case $opt in
-    p}
+    p)
         option_p=true
         option_a=false
         option_c=false

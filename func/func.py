@@ -5,9 +5,9 @@ package = sys.argv[1]
 status = sys.argv[2]
 
 if status=="a":
-    list=algo.main(package)
+    list=algo.main(package,"a")
 elif status == "p":
-    list=algo3.main(package)
+    list=algo.main(package,"p")
 
 cnt = len(list)
 

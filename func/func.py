@@ -2,16 +2,7 @@ import sys
 import algo
 import algo3
 
-def check_package(package_name):
-    url = f"https://pypi.org/pypi/{package_name}"
-    response = requests.get(url)
 
-    if response.status_code == 200:
-        print "exist"
-    else:
-        print "None"
-        
-def main():
     package = sys.argv[1]
     status = sys.argv[2]
     

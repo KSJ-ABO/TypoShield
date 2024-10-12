@@ -7,6 +7,6 @@ def check_package(package_name):
     response = requests.get(url)
 
     if response.status_code == 200:
-        print "exist"
+        print("exist")
 
 check_package(package_name}

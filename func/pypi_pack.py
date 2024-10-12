@@ -1,4 +1,5 @@
 import requests
+import sys
 
 package_name = sys.argv[1]
 

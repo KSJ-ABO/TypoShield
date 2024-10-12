@@ -1,14 +1,13 @@
+import request
+
 def check_package(package_name):
-    url = f"https://pypi.org/pypi/{package_name}/json"
+    url = f"https://pypi.org/pypi/{package_name}"
     response = requests.get(url)
 
     if response.status_code == 200:
-        package_info = response.json()
-        print(f"Package Name: {package_info['info']['name']}")
-        print(f"Version: {package_info['info']['version']}")
-        print(f"Summary: {package_info['info']['summary']}")
+        print "exist"
     else:
-        print(f"패키지를 찾을 수 없습니다: {package_name}")
+        print "None"
 
 # 사용 예시
 

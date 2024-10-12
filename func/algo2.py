@@ -104,7 +104,7 @@ def load_package_names() -> list:
     )
     cursor = conn.cursor()
     
-    cursor.execute("select name from Pypi_PackageName where name like %s")
+    cursor.execute("select name from Pypi_PackageName ")
     rows = cursor.fetchall()
     
     conn.close()

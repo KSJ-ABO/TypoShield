@@ -201,7 +201,7 @@ if $option_a; then
 fi
 
 if $option_p; then
-    EXIST=$(pip show "$INPUT" | grep -w "$INPUT")
+    EXIST=$(python3 "./func/pypi_pack.py "$INPUT")
     echo ""
     echo -e "\033[1m<typo Squatting Detection System for Packages>\033[0m"
     echo ""

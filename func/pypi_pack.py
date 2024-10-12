@@ -10,4 +10,4 @@ def check_package(package_name):
     if response.status_code == 200:
         print("exist")
 
-check_package(package_name}
+check_package(package_name)

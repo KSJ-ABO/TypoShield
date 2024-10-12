@@ -1,4 +1,6 @@
-import request
+import requests
+
+package = sys.argv[1]
 
 def check_package(package_name):
     url = f"https://pypi.org/pypi/{package_name}"

@@ -8,7 +8,5 @@ def check_package(package_name):
 
     if response.status_code == 200:
         print "exist"
-    else:
-        print "None"
 
 check_package(package_name}

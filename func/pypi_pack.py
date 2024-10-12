@@ -9,7 +9,4 @@ def check_package(package_name):
     else:
         print "None"
 
-# 사용 예시
-
-package_name = input("확인할 패키지 이름을 입력하세요: ")
-check_package(package_name)
+check_package(package_name}
